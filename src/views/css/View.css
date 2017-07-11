@@ -1,0 +1,29 @@
+.viewContainer {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.justifySpaceAround {
+  justify-content: space-around;
+}
+.justifyCenter {
+  justify-content: center;
+}
+.hidden {
+  visibility: hidden;
+}
+
+.grable{
+  padding: 7px;
+  display: inline-block;
+  text-align: center;
+  font-size: 35px;
+  border: 2px solid white;
+  height: 80%;
+  line-height: 250px;
+  position: relative;
+}
+

@@ -1,0 +1,20 @@
+.button {
+    width: 99.99%;
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #565656;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.buttonActive {
+    background-color: #c128c9 !important;
+    color: white !important;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+}

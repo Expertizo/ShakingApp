@@ -1,0 +1,179 @@
+.back-btn {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/*TODO:*/
+.item-wrap {
+    position: relative;
+    max-width: 100%;
+    height: 350px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.item {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #fff;
+    /*position: absolute;*/
+    animation-fill-mode: forwards;
+}
+
+.time-is-up {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(0,0,0,0.7);
+    padding: 5px;
+    text-align: center;
+}
+
+@keyframes MoveUpDown {
+    0% {
+        bottom: 0;
+    }
+    25% {
+        bottom: 100px;
+    }
+    50% {
+        bottom: 0;
+    }
+    75% {
+        bottom: -100px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes jurk {
+    0% {
+        left: 0;
+    }
+    50%{
+        left: 2%;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+.vib-img{
+    position: relative;
+    animation: jurk 0.05s linear 0.25s infinite;
+}
+
+.vibrate{
+    height: 100px;
+    width: 100px;
+}
+
+.even{
+    /*animation: MoveUpDown 0.5s linear infinite;*/
+    position: relative;
+}
+
+
+.watch {
+    width: 100%;
+    color: lightskyblue;
+    height: 200px;
+    font-size: 28px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    top: 50px;
+    margin: 0 auto;
+}
+
+.watch ol {
+    display: inline-block;
+    list-style: none;
+    height: 100%;
+    width: 8%;
+    padding: 0;
+    margin: 0 5px 0 0;
+}
+
+.watch ol li{
+    height: 200px;
+    top: 70px;
+    position: relative;
+}
+
+
+
+@-webkit-keyframes rotate-ms {
+    from {
+        -webkit-transform: translate(0, -400px);
+    }
+    to {
+        -webkit-transform: translate(0, 0);
+    }
+}
+
+
+@-webkit-keyframes rotate-ms-reverse {
+    from {
+        -webkit-transform: translate(0, 0);
+    }
+    to {
+        -webkit-transform: translate(0, -400px);
+    }
+}
+
+
+@-webkit-keyframes rotate-s-m {
+    from {
+        -webkit-transform: translate(0, 0px);
+    }
+    to {
+        -webkit-transform: translate(0, -5900px);
+    }
+}
+@keyframes rotate-s-m {
+    from {
+        -webkit-transform: translate(0, 0px);
+    }
+    to {
+        -webkit-transform: translate(0, -5900px);
+    }
+}
+
+
+.dial1 {
+    -webkit-animation: rotate-ms 2s linear;
+}
+
+.dial2 {
+    -webkit-animation: rotate-ms-reverse 2s linear;
+    -webkit-transform: translate(0, -400px);
+}
+
+.space {
+    visibility: hidden;
+}
+
+.dial3 {
+    -webkit-animation: rotate-s-m 3600s linear infinite;
+    animation: rotate-s-m 3600s linear infinite;
+}
+
+.dial4 {
+    -webkit-animation: rotate 43200s linear infinite;
+}

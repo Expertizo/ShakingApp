@@ -1,0 +1,55 @@
+.animated,
+.animated-win {
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+.animated-win.animated-win--count1 {
+    animation-iteration-count: 1;
+}
+
+.animated-win.animated-win--count2 {
+    animation-iteration-count: 2;
+}
+
+.animated-win.animated-win--count3 {
+    animation-iteration-count: 3;
+}
+
+.animated-win.animated-win--count4 {
+    animation-iteration-count: 4;
+}
+
+.animated-win.animated-win--count5 {
+    animation-iteration-count: 5;
+}
+
+.animated-win.animated-win--count6 {
+    animation-iteration-count: 6;
+}
+
+.animated-win.animated-win--count7 {
+    animation-iteration-count: 7;
+}
+
+.animated-win.animated-win--count8 {
+    animation-iteration-count: 8;
+}
+
+.animated-win.animated-win--count9 {
+    animation-iteration-count: 9;
+}
+
+.animated-win.animated-win--count10 {
+    animation-iteration-count: 10;
+}
+
+@keyframes shake {
+    25% {
+        transform: translatex(15px) translatey(-15px)
+    }
+    75% {
+        transform: translatex(-15px) translatey(15px)
+    }
+}

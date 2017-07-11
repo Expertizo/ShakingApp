@@ -1,0 +1,13 @@
+.won {
+  font-size: 30pt;
+  font-weight: bold;
+  color: rgb(172, 254, 47);
+  line-height: 1;
+}
+
+.lose {
+  font-size: 36pt;
+  font-weight: bold;
+  color: red;
+}
+
