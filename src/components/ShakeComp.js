@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './ShakeComp.css';
 
 export
@@ -27,7 +27,6 @@ export default class ShakeComp extends Component {
 
     componentDidMount() {
         this.Shake.start();
-
         this.startShakeListener();
     }
 

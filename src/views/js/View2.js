@@ -296,7 +296,8 @@ export default class View2 extends Component {
   }
 
   shakeDidOccur() {
-
+    clearInterval(this.shakesTimerId); // clear shakes timer
+    clearTimeout(this.clearCountTimer); // clear timeout whe
     this.setState({isAnimate: true, vibratePhone: true});
 
     // reset previous timeout
@@ -403,15 +404,6 @@ export default class View2 extends Component {
             title="Next"
             onClick={() => this.props.onDone()}
         />}
-        <div className="caption">
-          <text>Shake your phone</text>
-        </div>
-
-        <Button
-          className={this.state.closeBtnClass}
-          title="Close"
-          onClick={() => this.props.onBack()}
-        />
       </div>
     );
   }
