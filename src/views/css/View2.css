@@ -12,7 +12,7 @@
 .item-wrap {
     position: relative;
     max-width: 100%;
-    height: 350px;
+    height: 800px;
     width: 100%;
     text-align: center;
     z-index: 2;
@@ -91,36 +91,33 @@
 
 .watch {
     width: 100%;
-    color: lightskyblue;
-    height: 200px;
-    font-size: 28px;
+    height: 350px;
     overflow: hidden;
     position: relative;
-    text-align: center;
     top: 50px;
     margin: 0 auto;
 }
 
 .watch ol {
+    height:100%;
     display: inline-block;
     list-style: none;
-    height: 100%;
-    width: 8%;
+    width: 11.1%;
     padding: 0;
-    margin: 0 5px 0 0;
+    margin: 0 0 0 0;
 }
 
 .watch ol li{
-    height: 200px;
-    top: 70px;
-    position: relative;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 
 
 @-webkit-keyframes rotate-ms {
     from {
-        -webkit-transform: translate(0, -400px);
+        -webkit-transform: translate(0, -700px);
     }
     to {
         -webkit-transform: translate(0, 0);
@@ -133,47 +130,20 @@
         -webkit-transform: translate(0, 0);
     }
     to {
-        -webkit-transform: translate(0, -400px);
-    }
-}
-
-
-@-webkit-keyframes rotate-s-m {
-    from {
-        -webkit-transform: translate(0, 0px);
-    }
-    to {
-        -webkit-transform: translate(0, -5900px);
-    }
-}
-@keyframes rotate-s-m {
-    from {
-        -webkit-transform: translate(0, 0px);
-    }
-    to {
-        -webkit-transform: translate(0, -5900px);
+        -webkit-transform: translate(0, -700px);
     }
 }
 
 
 .dial1 {
-    -webkit-animation: rotate-ms 2s linear;
+    -webkit-animation: rotate-ms .85s linear;
 }
 
 .dial2 {
-    -webkit-animation: rotate-ms-reverse 2s linear;
-    -webkit-transform: translate(0, -400px);
+    -webkit-animation: rotate-ms-reverse .85s linear;
+    -webkit-transform: translate(0, -700px);
 }
 
 .space {
     visibility: hidden;
-}
-
-.dial3 {
-    -webkit-animation: rotate-s-m 3600s linear infinite;
-    animation: rotate-s-m 3600s linear infinite;
-}
-
-.dial4 {
-    -webkit-animation: rotate 43200s linear infinite;
 }

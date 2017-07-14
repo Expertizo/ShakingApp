@@ -6,6 +6,29 @@ import ShakeComp from '../../components/ShakeComp';
 
 import vibrate from '../../assets/vibrate-d.png';
 
+
+//epicparty
+import E from '../../assets/set_of_words/Set1/Letter1.jpg';
+import P1 from '../../assets/set_of_words/Set1/Letter2.jpg';
+import I from '../../assets/set_of_words/Set1/Letter3.jpg';
+import C from '../../assets/set_of_words/Set1/Letter4.jpg';
+import P2 from '../../assets/set_of_words/Set1/Letter5.jpg';
+import A from '../../assets/set_of_words/Set1/Letter6.jpg';
+import R from '../../assets/set_of_words/Set1/Letter7.jpg';
+import T from '../../assets/set_of_words/Set1/Letter8.jpg';
+import Y from '../../assets/set_of_words/Set1/Letter9.jpg';
+
+//Squadgoals
+import S from '../../assets/set_of_words/Set2/Letter1.jpg';
+import Q_U from '../../assets/set_of_words/Set2/Letter2.jpg';
+import A1 from '../../assets/set_of_words/Set2/Letter3.jpg';
+import D from '../../assets/set_of_words/Set2/Letter4.jpg';
+import G from '../../assets/set_of_words/Set2/Letter5.jpg';
+import O from '../../assets/set_of_words/Set2/Letter6.jpg';
+import A2 from '../../assets/set_of_words/Set2/Letter7.jpg';
+import L from '../../assets/set_of_words/Set2/Letter8.jpg';
+
+
 import soundWin from '../../assets/sound_win.mp3';
 import soundShake from '../../assets/sound_shake.mp3';
 import soundLose from '../../assets/sound_lose.mp3';
@@ -27,14 +50,15 @@ const SHAKES_TIMER_FROM = 10;
 const SHAKES_TIMER_TO = 30;
 const SHAKES_TIMER_STEP = 5;
 const GARMENTS_NUMBER = 4;
-const garble = ['r', 'g', 'w', 'g', 'e', 'f', 'g', 'p', 'a', 'l'];
-const epicparty = ['e', 'p', 'i', 'c', 'p', 'a', 'r', 't', 'y'],
-    awesome = ['a', 'w', 'e', 's', 'o', 'm', 'e'],
-    boozedup = ['b', 'o', 'o', 'z', 'e', 'd', 'u', 'p'];
+
+//Squadgoals
+const epicparty = [E, P1, I, C, P2, A, R, T, Y],
+      squadgoals = [S,Q_U ,A1,D,G,O, A2,L,S];
+    //awesome = ['a', 'w', 'e', 's', 'o', 'm', 'e'],
+    //boozedup = ['b', 'o', 'o', 'z', 'e', 'd', 'u', 'p'];
 const words = [
   epicparty,
-  awesome,
-  boozedup
+  squadgoals
 ];
 
 export type Score = {
@@ -43,7 +67,7 @@ export type Score = {
 };
 
 export type Props = {
-  onClick: Score => void,
+  onClick: (Score) => void,
   onBack: () => void
 };
 
@@ -87,7 +111,6 @@ const randomGarmentsSettings = (number: number): GarmentsSettings => {
 const garmentsSettings = randomGarmentsSettings(GARMENTS_NUMBER);
 let result;
 let customArr;
-let alphabets = 'a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z';
 export default class View2 extends Component {
   item: any;
 
@@ -130,24 +153,26 @@ export default class View2 extends Component {
     this.shakesTimerId = null;
     customArr = [];
     result = Math.floor(Math.random() * words.length);
-    garble.map((x, index)=>{
-      let z = alphabets.split(',')[Math.floor(Math.random() * (26 + 1))];
+    props.grable.map((x, index)=>{
+      let z = props.grable[Math.floor(Math.random() * props.grable.length)];
       words[result].map((y, index2)=>{
-        if(index == index2){
-          if(index % 2 == 0) {
+        if(index === index2){
+          if((index % 2) === 0) {
             customArr.push([y, z, x]);
           } else {
             customArr.push([x, z, y]);
           }
         }
+        return 0
       });
       if (index > words[result].length - 1) {
-        if(index % 2 == 0) {
+        if((index % 2) === 0) {
           customArr.push(['-', z, x]);
         } else {
           customArr.push([x, z, '-']);
         }
       }
+      return 0
     });
   }
 
@@ -207,7 +232,6 @@ export default class View2 extends Component {
       ) {
         clearInterval(this.shakesTimerId);
         this.resetScore();
-        this.dropGerment();
         this.setState(prevState => ({
           actualStep: prevState.actualStep + 1,
           shakesTimer: garmentsSettings.steps[this.state.actualStep].shakesTimer
@@ -303,20 +327,19 @@ export default class View2 extends Component {
       clearInterval(this.shakesTimerId);
       renderTimer = <p className={'time-is-up'}>Time's up</p>;
     }
-
-    const animateMag = this.state.animateMag;
-    const itemAnimClass = animateMag.isAnimate
-      ? this.state.animateMag.animHigh
-          ? ' shake-constant shake-hard'
-          : ' shake-constant shake-slow'
-      : '';
+    //const animateMag = this.state.animateMag;
+    //const itemAnimClass = animateMag.isAnimate
+    //  ? this.state.animateMag.animHigh
+    //      ? ' shake-constant shake-hard'
+    //      : ' shake-constant shake-slow'
+    //  : '';
     return (
       <div className="viewContainer justifySpaceAround">
         <button className="back-btn" onClick={() => this.onBackBtn()}>
           <img src={backBtn} alt="back button" />
         </button>
 
-        {this.state.showWord ? <span>you're to have an</span> : renderTimer}
+        {renderTimer}
 
         <audio id="audio">
           Ваш браузер не поддерживает <code>audio</code> элемент.
@@ -341,32 +364,40 @@ export default class View2 extends Component {
         <div className="item-wrap">
           <div className="watch">
             {
-             !this.state.showWord ? garble.map((l)=>{
-               return <ol>
-                     <li>{l}</li>
+             !this.state.showWord ? this.props.grable.map((l)=>{
+               return <ol key={l.toString()}>
+                 <li style ={ {backgroundImage: `url(${l})`}  }>
+                 </li>
                </ol>
              }) : customArr.map((l, i)=>{
-               if(i % 2 == 0) {
-                 return <ol className= "dial1">
+               if((i % 2) === 0) {
+                 return <ol className= "dial1" key={l.toString()}>
                    { l.map((child, index) => {
-                     return <li className={(child && child.indexOf('-') > -1) && 'space'}>{child}</li>
+                     return <li
+                         key={index}
+                         style ={ {backgroundImage: `url(${child})`}  }
+                         className={(child && child.indexOf('-') > -1) && 'space'}
+                     ></li>
                    })
                    }
                  </ol>
                } else {
-                 return <ol className= "dial2">
+                 return <ol className= "dial2" key={l.toString()}>
                    { l.map((child, index) => {
-                     return <li className={(child && child.indexOf('-') > -1) && 'space'}>{child}</li>
+                     return <li
+                         key={index}
+                         style ={ {backgroundImage: `url(${child})`}  }
+                         className={(child && child.indexOf('-') > -1) && 'space'}></li>
                    })
                    }
                  </ol>
                }
-                  })
+             })
             }
           </div>
 
         </div>
-        { !this.state.vibratePhone && !this.state.showWord ? <img src={vibrate} className="vibrate vib-img"/> : ''}
+        { !this.state.vibratePhone && !this.state.showWord ? <img src={vibrate} alt="" className="vibrate vib-img"/> : ''}
 
         {this.state.showWord && <Button
             title="Next"

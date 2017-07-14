@@ -13,7 +13,7 @@ export default class Button extends Component {
             className += ' ' + this.props.className;
         }
         return (
-            <a className={className} href="#" onClick={this.props.onClick}>{this.props.title}</a>
+            <a className={className} onClick={this.props.onClick}>{this.props.title}</a>
         );
     }
 }

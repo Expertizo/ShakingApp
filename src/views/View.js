@@ -5,6 +5,20 @@ import View1 from './js/View1';
 import View2 from './js/View2';
 import View3 from './js/View3';
 import bg from '../assets/background.jpg';
+
+
+import Letter1 from '../assets/scrambled/Letter1.jpg';
+import Letter2 from '../assets/scrambled/Letter2.jpg';
+import Letter3 from '../assets/scrambled/Letter3.jpg';
+import Letter4 from '../assets/scrambled/Letter4.jpg';
+import Letter5 from '../assets/scrambled/Letter5.jpg';
+import Letter6 from '../assets/scrambled/Letter6.jpg';
+import Letter7 from '../assets/scrambled/Letter7.jpg';
+import Letter8 from '../assets/scrambled/Letter8.jpg';
+import Letter9 from '../assets/scrambled/Letter9.jpg';
+
+const garble = [Letter1, Letter2, Letter3, Letter4, Letter5, Letter6, Letter7, Letter8, Letter9];
+
 //
 //import type Score from './js/View2';
 
@@ -42,13 +56,17 @@ export default class View extends Component {
 
         switch (this.state.currentPage) {
             case 1:
-                render = <View1 onClick={this._onView1Click.bind(this)}/>;
+                render = <View1
+                    grable={garble}
+                    onClick={this._onView1Click.bind(this)}
+                />;
                 break;
             case 2:
                 render = (
                     <View2
                         onDone={this._onView2Click.bind(this)}
                         onBack={this._onView3Click.bind(this)}
+                        grable={garble}
                     />
                 );
                 break;
